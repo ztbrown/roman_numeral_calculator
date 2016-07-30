@@ -9,6 +9,8 @@ int convert_to_arabic(char *roman_numeral)
   for (int i = 0; i < (sizeof(roman_numeral) / sizeof(roman_numeral[0])); i++){
     if (roman_numeral[i] == 'I'){
       result += 1;
+    } else if (roman_numeral[i] == 'V'){
+      result += 5;
     }
   }
 
