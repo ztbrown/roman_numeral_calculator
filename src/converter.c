@@ -19,6 +19,8 @@ int convert_to_arabic(char *roman_numeral)
       result += 100;
     } else if (roman_numeral[i] == 'D'){
       result += 500;
+    } else if (roman_numeral[i] == 'M'){
+      result += 1000;
     }
   }
 

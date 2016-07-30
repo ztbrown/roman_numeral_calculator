@@ -58,6 +58,18 @@ START_TEST(it_converts_D_to_500)
  }
 END_TEST
 
+START_TEST(it_converts_M_to_1000)
+ {
+   ck_assert_int_eq(convert_to_arabic("M"), 1000);
+ }
+END_TEST
+
+START_TEST(it_converts_MM_to_2000)
+ {
+   ck_assert_int_eq(convert_to_arabic("MM"), 2000);
+ }
+END_TEST
+
 Suite * convert_suite(void)
 {
   Suite *s;
@@ -76,6 +88,8 @@ Suite * convert_suite(void)
   tcase_add_test(tc_core, it_converts_C_to_100);
   tcase_add_test(tc_core, it_converts_CC_to_200);
   tcase_add_test(tc_core, it_converts_D_to_500);
+  tcase_add_test(tc_core, it_converts_M_to_1000);
+  tcase_add_test(tc_core, it_converts_MM_to_2000);
   suite_add_tcase(s, tc_core);
 
   return s;
