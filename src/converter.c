@@ -2,12 +2,12 @@
 #include <string.h>
 #include "converter.h"
 
-int convert_to_arabic(char *arg)
+int convert_to_arabic(char *number)
 {
   int result = 0;
   char roman_numeral[512];
 
-  strcpy(roman_numeral, arg);
+  strcpy(roman_numeral, number);
 
   rewrite_to_ignore_subtraction_rules(roman_numeral);
 
@@ -28,6 +28,22 @@ int convert_to_arabic(char *arg)
       result += 1000;
     }
   }
+
+  return result;
+}
+
+char * convert_from_arabic(int number)
+{
+  // longest standard roman numeral is 15 characters
+  char * result = malloc(16 * sizeof(char));
+  char * ptr = result;
+  int i;
+
+  for(i = 0; i < number; i++){
+    *ptr++ = 'I';
+  }
+
+  *ptr++ = '\0';
 
   return result;
 }

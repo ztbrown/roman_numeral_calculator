@@ -1,15 +1,17 @@
 #include <stdlib.h>
 #include <check.h>
-#include "check_roman.h"
+#include "check_to_arabic.h"
+#include "check_from_arabic.h"
 
 int main(void){
   int number_failed;
   Suite *s;
   SRunner *sr;
 
-  s = convert_suite();
+  s = to_arabic_suite();
 
   sr = srunner_create(s);
+  srunner_add_suite(sr, from_arabic_suite());
 
   srunner_run_all(sr, CK_VERBOSE);
   number_failed = srunner_ntests_failed(sr);
