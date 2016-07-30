@@ -34,11 +34,17 @@ int convert_to_arabic(char *number)
 
 char * convert_from_arabic(int number)
 {
+  // longest standard roman numeral is 15 characters
   char * result = malloc(16 * sizeof(char));
+  char * ptr = result;
+  int i;
 
-  result[0] = 'I';
-  result[1] = '\0';
-  
+  for(i = 0; i < number; i++){
+    *ptr++ = 'I';
+  }
+
+  *ptr++ = '\0';
+
   return result;
 }
 
