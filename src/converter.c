@@ -2,12 +2,12 @@
 #include <string.h>
 #include "converter.h"
 
-int convert_to_arabic(char *arg)
+int convert_to_arabic(char *number)
 {
   int result = 0;
   char roman_numeral[512];
 
-  strcpy(roman_numeral, arg);
+  strcpy(roman_numeral, number);
 
   rewrite_to_ignore_subtraction_rules(roman_numeral);
 
@@ -29,6 +29,16 @@ int convert_to_arabic(char *arg)
     }
   }
 
+  return result;
+}
+
+char * convert_from_arabic(int number)
+{
+  char * result = malloc(16 * sizeof(char));
+
+  result[0] = 'I';
+  result[1] = '\0';
+  
   return result;
 }
 

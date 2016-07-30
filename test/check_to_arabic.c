@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <check.h>
-#include "check_roman.h"
+#include "check_to_arabic.h"
 #include "../src/converter.h"
 
 START_TEST(it_converts_I_to_1)
@@ -106,12 +106,12 @@ START_TEST(it_converts_CM_to_900)
  }
 END_TEST
 
-Suite * convert_suite(void)
+Suite * to_arabic_suite(void)
 {
   Suite *s;
   TCase *tc_core;
 
-  s = suite_create("ConvertSuite");
+  s = suite_create("ConvertToArabicSuite");
 
   tc_core = tcase_create("Core");
 
