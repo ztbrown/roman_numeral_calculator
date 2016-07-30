@@ -23,6 +23,16 @@ START_TEST(it_converts_2_to_II)
  }
 END_TEST
 
+START_TEST(it_converts_5_to_V)
+ {
+   char * result = convert_from_arabic(5);
+
+   ck_assert_str_eq(result, "V");
+
+   free(result);
+ }
+END_TEST
+
 Suite * from_arabic_suite(void)
 {
   Suite *s;
@@ -34,6 +44,7 @@ Suite * from_arabic_suite(void)
 
   tcase_add_test(tc_core, it_converts_1_to_I);
   tcase_add_test(tc_core, it_converts_2_to_II);
+  tcase_add_test(tc_core, it_converts_5_to_V);
 
   suite_add_tcase(s, tc_core);
 
