@@ -7,7 +7,7 @@ int main(void){
   Suite *s;
   SRunner *sr;
 
-  s = add_suite();
+  s = convert_suite();
 
   sr = srunner_create(s);
 

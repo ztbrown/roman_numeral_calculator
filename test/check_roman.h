@@ -4,6 +4,6 @@
 #include <stdlib.h>
 #include <check.h>
 
-Suite * add_suite(void);
+Suite * convert_suite(void);
 
 #endif
