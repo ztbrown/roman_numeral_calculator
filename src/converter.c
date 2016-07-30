@@ -32,15 +32,37 @@ int convert_to_arabic(char *number)
   return result;
 }
 
+void extract_ones(char **numeral)
+{
+  *(*numeral) = 'I';
+  *numeral += 1;
+}
+
+void extract_fives(char **numeral)
+{
+  *(*numeral) = 'V';
+  *numeral += 1;
+}
+
+void (*numeral_operation[2])(char ** numeral) = {extract_fives, extract_ones};
+
 char * convert_from_arabic(int number)
 {
   // longest standard roman numeral is 15 characters
   char * result = malloc(16 * sizeof(char));
   char * ptr = result;
+
+  int chunk[2] = {5, 1};
+
   int i;
 
-  for(i = 0; i < number; i++){
-    *ptr++ = 'I';
+  for(i = 0; i < 2; i++){
+    int count = (number / chunk[i]);
+    if (count > 0){
+      number -= (count * chunk[i]);
+      while(count--)
+        (numeral_operation[i])(&ptr);
+    }
   }
 
   *ptr++ = '\0';
