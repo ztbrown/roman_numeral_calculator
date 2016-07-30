@@ -52,6 +52,12 @@ START_TEST(it_converts_CC_to_200)
  }
 END_TEST
 
+START_TEST(it_converts_D_to_500)
+ {
+   ck_assert_int_eq(convert_to_arabic("D"), 500);
+ }
+END_TEST
+
 Suite * convert_suite(void)
 {
   Suite *s;
@@ -69,6 +75,7 @@ Suite * convert_suite(void)
   tcase_add_test(tc_core, it_converts_L_to_50);
   tcase_add_test(tc_core, it_converts_C_to_100);
   tcase_add_test(tc_core, it_converts_CC_to_200);
+  tcase_add_test(tc_core, it_converts_D_to_500);
   suite_add_tcase(s, tc_core);
 
   return s;
