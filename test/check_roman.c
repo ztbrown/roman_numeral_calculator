@@ -70,6 +70,12 @@ START_TEST(it_converts_MM_to_2000)
  }
 END_TEST
 
+START_TEST(it_converts_IV_to_4)
+ {
+   ck_assert_int_eq(convert_to_arabic("IV"), 4);
+ }
+END_TEST
+
 Suite * convert_suite(void)
 {
   Suite *s;
@@ -90,6 +96,10 @@ Suite * convert_suite(void)
   tcase_add_test(tc_core, it_converts_D_to_500);
   tcase_add_test(tc_core, it_converts_M_to_1000);
   tcase_add_test(tc_core, it_converts_MM_to_2000);
+
+  // numerals involving RN subtraciton rules
+  tcase_add_test(tc_core, it_converts_IV_to_4);
+
   suite_add_tcase(s, tc_core);
 
   return s;
