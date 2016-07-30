@@ -76,6 +76,36 @@ START_TEST(it_converts_IV_to_4)
  }
 END_TEST
 
+START_TEST(it_converts_IX_to_9)
+ {
+   ck_assert_int_eq(convert_to_arabic("IX"), 9);
+ }
+END_TEST
+
+START_TEST(it_converts_XL_to_40)
+ {
+   ck_assert_int_eq(convert_to_arabic("XL"), 40);
+ }
+END_TEST
+
+START_TEST(it_converts_XC_to_90)
+ {
+   ck_assert_int_eq(convert_to_arabic("XC"), 90);
+ }
+END_TEST
+
+START_TEST(it_converts_CD_to_400)
+ {
+   ck_assert_int_eq(convert_to_arabic("CD"), 400);
+ }
+END_TEST
+
+START_TEST(it_converts_CM_to_900)
+ {
+   ck_assert_int_eq(convert_to_arabic("CM"), 900);
+ }
+END_TEST
+
 Suite * convert_suite(void)
 {
   Suite *s;
@@ -99,6 +129,11 @@ Suite * convert_suite(void)
 
   // numerals involving RN subtraciton rules
   tcase_add_test(tc_core, it_converts_IV_to_4);
+  tcase_add_test(tc_core, it_converts_IX_to_9);
+  tcase_add_test(tc_core, it_converts_XL_to_40);
+  tcase_add_test(tc_core, it_converts_XC_to_90);
+  tcase_add_test(tc_core, it_converts_CD_to_400);
+  tcase_add_test(tc_core, it_converts_CM_to_900);
 
   suite_add_tcase(s, tc_core);
 
