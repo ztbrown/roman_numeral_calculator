@@ -40,6 +40,18 @@ START_TEST(it_converts_L_to_50)
  }
 END_TEST
 
+START_TEST(it_converts_C_to_100)
+ {
+   ck_assert_int_eq(convert_to_arabic("C"), 100);
+ }
+END_TEST
+
+START_TEST(it_converts_CC_to_200)
+ {
+   ck_assert_int_eq(convert_to_arabic("CC"), 200);
+ }
+END_TEST
+
 Suite * convert_suite(void)
 {
   Suite *s;
@@ -55,6 +67,8 @@ Suite * convert_suite(void)
   tcase_add_test(tc_core, it_converts_X_to_10);
   tcase_add_test(tc_core, it_converts_XX_to_20);
   tcase_add_test(tc_core, it_converts_L_to_50);
+  tcase_add_test(tc_core, it_converts_C_to_100);
+  tcase_add_test(tc_core, it_converts_CC_to_200);
   suite_add_tcase(s, tc_core);
 
   return s;
