@@ -38,9 +38,9 @@ char * convert_from_arabic(int number)
   char * result = malloc(16 * sizeof(char));
   char * ptr = result;
 
-  int chunk[12] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 5, 4, 1};
+  int chunk[13] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 
-  struct conversion_table roman_conv[12] = {
+  struct conversion_table roman_conv[13] = {
     {{'M'}, 1},
     {{'C', 'M'}, 2},
     {{'D'}, 1},
@@ -50,12 +50,13 @@ char * convert_from_arabic(int number)
     {{'L'}, 1},
     {{'X','L'}, 2},
     {{'X'}, 1},
+    {{'I', 'X'}, 2},
     {{'V'}, 1},
     {{'I','V'}, 2},
     {{'I'}, 1}
   };
 
-  for(int i = 0; i < 12; i++){
+  for(int i = 0; i < 13; i++){
     int count = (number / chunk[i]);
     if (count > 0){
       number -= (count * chunk[i]);

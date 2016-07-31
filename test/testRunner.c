@@ -2,6 +2,7 @@
 #include <check.h>
 #include "check_to_arabic.h"
 #include "check_from_arabic.h"
+#include "check_calculator.h"
 
 int main(void){
   int number_failed;
@@ -12,6 +13,7 @@ int main(void){
 
   sr = srunner_create(s);
   srunner_add_suite(sr, from_arabic_suite());
+  srunner_add_suite(sr, add_suite());
 
   srunner_run_all(sr, CK_VERBOSE);
   number_failed = srunner_ntests_failed(sr);

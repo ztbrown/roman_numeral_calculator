@@ -27,7 +27,6 @@ START_TEST(it_converts_X_to_10)
  }
 END_TEST
 
-
 START_TEST(it_converts_XX_to_20)
  {
    ck_assert_int_eq(convert_to_arabic("X"), 10);
