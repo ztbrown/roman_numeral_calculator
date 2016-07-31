@@ -9,9 +9,11 @@ char * convert_from_arabic(int number);
 void gsub(char *str, const char *pattern, const char *repl);
 void rewrite_to_ignore_subtraction_rules(char *roman_numeral);
 void extract(char **numeral, char nums[2], int num_size);
+void add_to_buffer(char nums[2], int size, char ** ptr);
 
-struct conversion_table;
-typedef void (*numeral_operation)(char ** numeral);
-numeral_operation extract_curry(char nums[2], int size);
+struct conversion_table {
+    char arr[2];
+    size_t len;
+};
 
 #endif
