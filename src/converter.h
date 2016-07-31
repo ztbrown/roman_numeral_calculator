@@ -10,4 +10,8 @@ void gsub(char *str, const char *pattern, const char *repl);
 void rewrite_to_ignore_subtraction_rules(char *roman_numeral);
 void extract(char **numeral, char nums[2], int num_size);
 
+struct conversion_table;
+typedef void (*numeral_operation)(char ** numeral);
+numeral_operation extract_curry(char nums[2], int size);
+
 #endif
