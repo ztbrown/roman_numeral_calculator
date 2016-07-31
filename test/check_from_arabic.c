@@ -103,6 +103,16 @@ START_TEST(it_converts_100_to_C)
  }
 END_TEST
 
+START_TEST(it_converts_200_to_CC)
+ {
+   char * result = convert_from_arabic(200);
+
+   ck_assert_str_eq(result, "CC");
+
+   free(result);
+ }
+END_TEST
+
 START_TEST(it_converts_400_to_CD)
  {
    char * result = convert_from_arabic(400);
@@ -143,6 +153,16 @@ START_TEST(it_converts_1000_to_M)
  }
 END_TEST
 
+START_TEST(it_converts_2000_to_MM)
+ {
+   char * result = convert_from_arabic(2000);
+
+   ck_assert_str_eq(result, "MM");
+
+   free(result);
+ }
+END_TEST
+
 Suite * from_arabic_suite(void)
 {
   Suite *s;
@@ -162,10 +182,12 @@ Suite * from_arabic_suite(void)
   tcase_add_test(tc_core, it_converts_50_to_L);
   tcase_add_test(tc_core, it_converts_90_to_XC);
   tcase_add_test(tc_core, it_converts_100_to_C);
+  tcase_add_test(tc_core, it_converts_200_to_CC);
   tcase_add_test(tc_core, it_converts_400_to_CD);
   tcase_add_test(tc_core, it_converts_500_to_D);
   tcase_add_test(tc_core, it_converts_900_to_CM);
   tcase_add_test(tc_core, it_converts_1000_to_M);
+  tcase_add_test(tc_core, it_converts_2000_to_MM);
 
   suite_add_tcase(s, tc_core);
 
