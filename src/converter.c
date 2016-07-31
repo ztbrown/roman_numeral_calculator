@@ -32,19 +32,33 @@ int convert_to_arabic(char *number)
   return result;
 }
 
+void extract(char **numeral, char nums[2], int num_size)
+{
+  for(int i = 0; i < num_size; i++){
+    *(*numeral) = nums[i];
+    *numeral += 1;
+  }
+}
+
 void extract_ones(char **numeral)
 {
-  *(*numeral) = 'I';
-  *numeral += 1;
+  char nums[1] = {'I'};
+  extract(numeral, nums, 1);
+}
+
+void extract_fours(char **numeral)
+{
+  char nums[2] = {'I', 'V'};
+  extract(numeral, nums, 2);
 }
 
 void extract_fives(char **numeral)
 {
-  *(*numeral) = 'V';
-  *numeral += 1;
+  char nums[1] = {'V'};
+  extract(numeral, nums, 1);
 }
 
-void (*numeral_operation[2])(char ** numeral) = {extract_fives, extract_ones};
+void (*numeral_operation[3])(char ** numeral) = {extract_fives, extract_fours, extract_ones};
 
 char * convert_from_arabic(int number)
 {
@@ -52,11 +66,11 @@ char * convert_from_arabic(int number)
   char * result = malloc(16 * sizeof(char));
   char * ptr = result;
 
-  int chunk[2] = {5, 1};
+  int chunk[3] = {5, 4, 1};
 
   int i;
 
-  for(i = 0; i < 2; i++){
+  for(i = 0; i < 3; i++){
     int count = (number / chunk[i]);
     if (count > 0){
       number -= (count * chunk[i]);
