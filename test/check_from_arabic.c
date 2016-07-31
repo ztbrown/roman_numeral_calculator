@@ -43,6 +43,16 @@ START_TEST(it_converts_4_to_IV)
  }
 END_TEST
 
+START_TEST(it_converts_9_to_IX)
+ {
+   char * result = convert_from_arabic(9);
+
+   ck_assert_str_eq(result, "IX");
+
+   free(result);
+ }
+END_TEST
+
 START_TEST(it_converts_10_to_X)
  {
    char * result = convert_from_arabic(10);
@@ -176,6 +186,7 @@ Suite * from_arabic_suite(void)
   tcase_add_test(tc_core, it_converts_2_to_II);
   tcase_add_test(tc_core, it_converts_4_to_IV);
   tcase_add_test(tc_core, it_converts_5_to_V);
+  tcase_add_test(tc_core, it_converts_9_to_IX);
   tcase_add_test(tc_core, it_converts_10_to_X);
   tcase_add_test(tc_core, it_converts_20_to_XX);
   tcase_add_test(tc_core, it_converts_40_to_XL);
