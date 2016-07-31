@@ -33,6 +33,16 @@ START_TEST(it_converts_5_to_V)
  }
 END_TEST
 
+START_TEST(it_converts_4_to_IV)
+ {
+   char * result = convert_from_arabic(4);
+
+   ck_assert_str_eq(result, "IV");
+
+   free(result);
+ }
+END_TEST
+
 Suite * from_arabic_suite(void)
 {
   Suite *s;
@@ -45,6 +55,7 @@ Suite * from_arabic_suite(void)
   tcase_add_test(tc_core, it_converts_1_to_I);
   tcase_add_test(tc_core, it_converts_2_to_II);
   tcase_add_test(tc_core, it_converts_5_to_V);
+  tcase_add_test(tc_core, it_converts_4_to_IV);
 
   suite_add_tcase(s, tc_core);
 
