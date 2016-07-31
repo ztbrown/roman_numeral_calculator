@@ -113,6 +113,16 @@ START_TEST(it_converts_400_to_CD)
  }
 END_TEST
 
+START_TEST(it_converts_500_to_D)
+ {
+   char * result = convert_from_arabic(500);
+
+   ck_assert_str_eq(result, "D");
+
+   free(result);
+ }
+END_TEST
+
 Suite * from_arabic_suite(void)
 {
   Suite *s;
@@ -133,6 +143,7 @@ Suite * from_arabic_suite(void)
   tcase_add_test(tc_core, it_converts_90_to_XC);
   tcase_add_test(tc_core, it_converts_100_to_C);
   tcase_add_test(tc_core, it_converts_400_to_CD);
+  tcase_add_test(tc_core, it_converts_500_to_D);
 
   suite_add_tcase(s, tc_core);
 

@@ -88,7 +88,21 @@ void extract_hundreds(char **numeral)
   extract(numeral, nums, 1);
 }
 
-void (*numeral_operation[8])(char ** numeral) = {
+void extract_four_hundreds(char **numeral)
+{
+  char nums[2] = {'C', 'D'};
+  extract(numeral, nums, 2);
+}
+
+void extract_five_hundreds(char **numeral)
+{
+  char nums[2] = {'D'};
+  extract(numeral, nums, 1);
+}
+
+void (*numeral_operation[10])(char ** numeral) = {
+  extract_five_hundreds,
+  extract_four_hundreds,
   extract_hundreds,
   extract_nineties,
   extract_fifties,
@@ -105,7 +119,7 @@ char * convert_from_arabic(int number)
   char * result = malloc(16 * sizeof(char));
   char * ptr = result;
 
-  int chunk[8] = {100, 90, 50, 40, 10, 5, 4, 1};
+  int chunk[10] = {500, 400, 100, 90, 50, 40, 10, 5, 4, 1};
 
   int i;
 
