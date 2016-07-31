@@ -60,7 +60,7 @@ char * convert_from_arabic(int number)
     if (count > 0){
       number -= (count * chunk[i]);
       while(count--){
-        add_to_buffer(roman_conv[i].arr, roman_conv[i].len)(&ptr);
+        add_to_buffer(roman_conv[i].arr, roman_conv[i].len, &ptr);
       }
     }
   }
@@ -70,19 +70,13 @@ char * convert_from_arabic(int number)
   return result;
 }
 
-void add_to_buffer(char nums[2], int size. char ** numeral)
+void add_to_buffer(char nums[2], int size, char ** numeral)
 {
     for(int i = 0; i < size; i++){
       *(*numeral) = nums[i];
       *numeral += 1;
     }
 }
-
-struct conversion_table {
-    char arr[2];
-    int value;
-    size_t len;
-};
 
 void rewrite_to_ignore_subtraction_rules(char *roman_numeral)
 {
