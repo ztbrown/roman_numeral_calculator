@@ -58,7 +58,18 @@ void extract_fives(char **numeral)
   extract(numeral, nums, 1);
 }
 
-void (*numeral_operation[3])(char ** numeral) = {extract_fives, extract_fours, extract_ones};
+void extract_tens(char **numeral)
+{
+  char nums[1] = {'X'};
+  extract(numeral, nums, 1);
+}
+
+void (*numeral_operation[4])(char ** numeral) = {
+  extract_tens,
+  extract_fives,
+  extract_fours,
+  extract_ones
+};
 
 char * convert_from_arabic(int number)
 {
@@ -66,11 +77,11 @@ char * convert_from_arabic(int number)
   char * result = malloc(16 * sizeof(char));
   char * ptr = result;
 
-  int chunk[3] = {5, 4, 1};
+  int chunk[4] = {10, 5, 4, 1};
 
   int i;
 
-  for(i = 0; i < 3; i++){
+  for(i = 0; i < sizeof(chunk)/sizeof(int); i++){
     int count = (number / chunk[i]);
     if (count > 0){
       number -= (count * chunk[i]);
