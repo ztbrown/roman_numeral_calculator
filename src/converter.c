@@ -32,25 +32,6 @@ int convert_to_arabic(char *number)
   return result;
 }
 
-typedef void (*numeral_operation)(char ** numeral);
-
-numeral_operation extract_curry(char nums[2], int size)
-{
-  void func (char ** numeral){
-    for(int i = 0; i < size; i++){
-      *(*numeral) = nums[i];
-      *numeral += 1;
-    }
-  }
-
-  return func;
-}
-
-struct conversion_table {
-    char arr[2];
-    size_t len;
-};
-
 char * convert_from_arabic(int number)
 {
   // longest standard roman numeral is 15 characters
@@ -58,8 +39,6 @@ char * convert_from_arabic(int number)
   char * ptr = result;
 
   int chunk[12] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 5, 4, 1};
-
-  int i;
 
   struct conversion_table roman_conv[12] = {
     {{'M'}, 1},
@@ -76,12 +55,12 @@ char * convert_from_arabic(int number)
     {{'I'}, 1}
   };
 
-  for(i = 0; i < 12; i++){
+  for(int i = 0; i < 12; i++){
     int count = (number / chunk[i]);
     if (count > 0){
       number -= (count * chunk[i]);
       while(count--){
-        extract_curry(roman_conv[i].arr, roman_conv[i].len)(&ptr);
+        add_to_buffer(roman_conv[i].arr, roman_conv[i].len)(&ptr);
       }
     }
   }
@@ -90,6 +69,20 @@ char * convert_from_arabic(int number)
 
   return result;
 }
+
+void add_to_buffer(char nums[2], int size. char ** numeral)
+{
+    for(int i = 0; i < size; i++){
+      *(*numeral) = nums[i];
+      *numeral += 1;
+    }
+}
+
+struct conversion_table {
+    char arr[2];
+    int value;
+    size_t len;
+};
 
 void rewrite_to_ignore_subtraction_rules(char *roman_numeral)
 {
