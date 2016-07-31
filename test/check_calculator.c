@@ -205,3 +205,107 @@ Suite * add_suite(void)
   return s;
 
 }
+
+START_TEST(it_subtracts_I_from_II_to_get_I)
+ {
+   char * result = subtract("II", "I");
+
+   ck_assert_str_eq(result, "I");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_subtracts_I_from_V_to_get_IV)
+ {
+   char * result = subtract("V", "I");
+
+   ck_assert_str_eq(result, "IV");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_subtracts_I_from_X_to_get_IX)
+ {
+   char * result = subtract("X", "I");
+
+   ck_assert_str_eq(result, "IX");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_subtracts_IV_from_XIII_to_get_IX)
+ {
+   char * result = subtract("XIII", "IV");
+
+   ck_assert_str_eq(result, "IX");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_subtracts_I_from_L_to_get_XLIX)
+ {
+   char * result = subtract("L", "I");
+
+   ck_assert_str_eq(result, "XLIX");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_subtracts_I_from_C_to_get_XCIX)
+ {
+   char * result = subtract("C", "I");
+
+   ck_assert_str_eq(result, "XCIX");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_subtracts_I_from_D_to_get_CDXCIX)
+ {
+   char * result = subtract("D", "I");
+
+   ck_assert_str_eq(result, "CDXCIX");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_subtracts_I_from_M_to_get_CMXCIX)
+ {
+   char * result = subtract("M", "I");
+
+   ck_assert_str_eq(result, "CMXCIX");
+
+   free(result);
+ }
+END_TEST
+
+Suite * subtract_suite(void)
+{
+  Suite *s;
+  TCase *tc_core;
+
+  s = suite_create("SubtractTwoNumbers");
+
+  tc_core = tcase_create("Core");
+
+  tcase_add_test(tc_core, it_subtracts_I_from_II_to_get_I);
+  tcase_add_test(tc_core, it_subtracts_I_from_V_to_get_IV);
+  tcase_add_test(tc_core, it_subtracts_I_from_X_to_get_IX);
+  tcase_add_test(tc_core, it_subtracts_I_from_L_to_get_XLIX);
+  tcase_add_test(tc_core, it_subtracts_IV_from_XIII_to_get_IX);
+  tcase_add_test(tc_core, it_subtracts_I_from_C_to_get_XCIX);
+  tcase_add_test(tc_core, it_subtracts_I_from_D_to_get_CDXCIX);
+  tcase_add_test(tc_core, it_subtracts_I_from_M_to_get_CMXCIX);
+
+  suite_add_tcase(s, tc_core);
+
+  return s;
+
+}
