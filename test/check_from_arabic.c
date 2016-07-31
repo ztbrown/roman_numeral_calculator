@@ -83,6 +83,36 @@ START_TEST(it_converts_50_to_L)
  }
 END_TEST
 
+START_TEST(it_converts_90_to_XC)
+ {
+   char * result = convert_from_arabic(90);
+
+   ck_assert_str_eq(result, "XC");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_converts_100_to_C)
+ {
+   char * result = convert_from_arabic(100);
+
+   ck_assert_str_eq(result, "C");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_converts_400_to_CD)
+ {
+   char * result = convert_from_arabic(400);
+
+   ck_assert_str_eq(result, "CD");
+
+   free(result);
+ }
+END_TEST
+
 Suite * from_arabic_suite(void)
 {
   Suite *s;
@@ -100,6 +130,9 @@ Suite * from_arabic_suite(void)
   tcase_add_test(tc_core, it_converts_20_to_XX);
   tcase_add_test(tc_core, it_converts_40_to_XL);
   tcase_add_test(tc_core, it_converts_50_to_L);
+  tcase_add_test(tc_core, it_converts_90_to_XC);
+  tcase_add_test(tc_core, it_converts_100_to_C);
+  tcase_add_test(tc_core, it_converts_400_to_CD);
 
   suite_add_tcase(s, tc_core);
 
