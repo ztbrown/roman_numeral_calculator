@@ -58,7 +58,74 @@ void extract_fives(char **numeral)
   extract(numeral, nums, 1);
 }
 
-void (*numeral_operation[3])(char ** numeral) = {extract_fives, extract_fours, extract_ones};
+void extract_tens(char **numeral)
+{
+  char nums[1] = {'X'};
+  extract(numeral, nums, 1);
+}
+
+void extract_forties(char **numeral)
+{
+  char nums[2] = {'X', 'L'};
+  extract(numeral, nums, 2);
+}
+
+void extract_fifties(char **numeral)
+{
+  char nums[1] = {'L'};
+  extract(numeral, nums, 1);
+}
+
+void extract_nineties(char **numeral)
+{
+  char nums[2] = {'X', 'C'};
+  extract(numeral, nums, 2);
+}
+
+void extract_hundreds(char **numeral)
+{
+  char nums[1] = {'C'};
+  extract(numeral, nums, 1);
+}
+
+void extract_four_hundreds(char **numeral)
+{
+  char nums[2] = {'C', 'D'};
+  extract(numeral, nums, 2);
+}
+
+void extract_five_hundreds(char **numeral)
+{
+  char nums[1] = {'D'};
+  extract(numeral, nums, 1);
+}
+
+void extract_nine_hundreds(char **numeral)
+{
+  char nums[2] = {'C', 'M'};
+  extract(numeral, nums, 2);
+}
+
+void extract_thousands(char **numeral)
+{
+  char nums[1] = {'M'};
+  extract(numeral, nums, 1);
+}
+
+void (*numeral_operation[12])(char ** numeral) = {
+  extract_thousands,
+  extract_nine_hundreds,
+  extract_five_hundreds,
+  extract_four_hundreds,
+  extract_hundreds,
+  extract_nineties,
+  extract_fifties,
+  extract_forties,
+  extract_tens,
+  extract_fives,
+  extract_fours,
+  extract_ones
+};
 
 char * convert_from_arabic(int number)
 {
@@ -66,11 +133,11 @@ char * convert_from_arabic(int number)
   char * result = malloc(16 * sizeof(char));
   char * ptr = result;
 
-  int chunk[3] = {5, 4, 1};
+  int chunk[12] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 5, 4, 1};
 
   int i;
 
-  for(i = 0; i < 3; i++){
+  for(i = 0; i < sizeof(chunk)/sizeof(int); i++){
     int count = (number / chunk[i]);
     if (count > 0){
       number -= (count * chunk[i]);

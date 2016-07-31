@@ -43,6 +43,106 @@ START_TEST(it_converts_4_to_IV)
  }
 END_TEST
 
+START_TEST(it_converts_10_to_X)
+ {
+   char * result = convert_from_arabic(10);
+
+   ck_assert_str_eq(result, "X");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_converts_20_to_XX)
+ {
+   char * result = convert_from_arabic(20);
+
+   ck_assert_str_eq(result, "XX");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_converts_40_to_XL)
+ {
+   char * result = convert_from_arabic(40);
+
+   ck_assert_str_eq(result, "XL");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_converts_50_to_L)
+ {
+   char * result = convert_from_arabic(50);
+
+   ck_assert_str_eq(result, "L");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_converts_90_to_XC)
+ {
+   char * result = convert_from_arabic(90);
+
+   ck_assert_str_eq(result, "XC");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_converts_100_to_C)
+ {
+   char * result = convert_from_arabic(100);
+
+   ck_assert_str_eq(result, "C");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_converts_400_to_CD)
+ {
+   char * result = convert_from_arabic(400);
+
+   ck_assert_str_eq(result, "CD");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_converts_500_to_D)
+ {
+   char * result = convert_from_arabic(500);
+
+   ck_assert_str_eq(result, "D");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_converts_900_to_CM)
+ {
+   char * result = convert_from_arabic(900);
+
+   ck_assert_str_eq(result, "CM");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_converts_1000_to_M)
+ {
+   char * result = convert_from_arabic(1000);
+
+   ck_assert_str_eq(result, "M");
+
+   free(result);
+ }
+END_TEST
+
 Suite * from_arabic_suite(void)
 {
   Suite *s;
@@ -54,8 +154,18 @@ Suite * from_arabic_suite(void)
 
   tcase_add_test(tc_core, it_converts_1_to_I);
   tcase_add_test(tc_core, it_converts_2_to_II);
-  tcase_add_test(tc_core, it_converts_5_to_V);
   tcase_add_test(tc_core, it_converts_4_to_IV);
+  tcase_add_test(tc_core, it_converts_5_to_V);
+  tcase_add_test(tc_core, it_converts_10_to_X);
+  tcase_add_test(tc_core, it_converts_20_to_XX);
+  tcase_add_test(tc_core, it_converts_40_to_XL);
+  tcase_add_test(tc_core, it_converts_50_to_L);
+  tcase_add_test(tc_core, it_converts_90_to_XC);
+  tcase_add_test(tc_core, it_converts_100_to_C);
+  tcase_add_test(tc_core, it_converts_400_to_CD);
+  tcase_add_test(tc_core, it_converts_500_to_D);
+  tcase_add_test(tc_core, it_converts_900_to_CM);
+  tcase_add_test(tc_core, it_converts_1000_to_M);
 
   suite_add_tcase(s, tc_core);
 
