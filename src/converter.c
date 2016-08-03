@@ -2,10 +2,9 @@
 #include <string.h>
 #include "converter.h"
 
-void gsub(char *str, const char *pattern, const char *repl);
-void rewrite_to_ignore_subtraction_rules(char *roman_numeral);
-void extract(char **numeral, char nums[2], int num_size);
-void add_to_buffer(char nums[2], int size, char ** ptr);
+static void gsub(char *str, const char *pattern, const char *repl);
+static void rewrite_to_ignore_subtraction_rules(char *roman_numeral);
+static void add_to_buffer(char nums[2], int size, char ** ptr);
 
 struct conversion_table {
     char arr[2];
@@ -81,7 +80,7 @@ char * convert_from_arabic(int number)
   return result;
 }
 
-void add_to_buffer(char nums[2], int size, char ** numeral)
+static void add_to_buffer(char nums[2], int size, char ** numeral)
 {
     for(int i = 0; i < size; i++){
       *(*numeral) = nums[i];
@@ -89,7 +88,7 @@ void add_to_buffer(char nums[2], int size, char ** numeral)
     }
 }
 
-void rewrite_to_ignore_subtraction_rules(char *roman_numeral)
+static void rewrite_to_ignore_subtraction_rules(char *roman_numeral)
 {
 	const char * const patterns[] = {"CM", "CD", "XC", "XL", "IX", "IV"};
 	const char * const repl[] = {"DCD", "CCCC", "LXL", "XXXX", "VIV", "IIII"};
@@ -99,7 +98,7 @@ void rewrite_to_ignore_subtraction_rules(char *roman_numeral)
 		gsub(roman_numeral, patterns[i], repl[i]);
 }
 
-void gsub(char *str, const char *pattern, const char *repl)
+static void gsub(char *str, const char *pattern, const char *repl)
 {
 	char *sub_ptr, *p2, *p3;
 	char temp[2048];
