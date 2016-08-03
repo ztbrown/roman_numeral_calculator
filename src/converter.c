@@ -2,7 +2,7 @@
 #include <string.h>
 #include "converter.h"
 
-int convert_to_arabic(char *number)
+int convert_to_arabic(const char *number)
 {
   int result = 0;
   char roman_numeral[512];
