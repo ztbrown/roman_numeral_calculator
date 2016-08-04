@@ -6,6 +6,8 @@ static void gsub(char *str, const char *pattern, const char *repl);
 static void rewrite_to_ignore_subtraction_rules(char *roman_numeral);
 static void add_to_buffer(char nums[2], int size, char ** ptr);
 
+static const int MAX_ROMAN_NUMERAL_SIZE = 16;
+
 struct conversion_table {
     char arr[2];
     size_t len;
@@ -14,7 +16,7 @@ struct conversion_table {
 int convert_to_arabic(const char *number)
 {
   int result = 0;
-  char roman_numeral[512];
+  char roman_numeral[MAX_ROMAN_NUMERAL_SIZE];
 
   strcpy(roman_numeral, number);
 
@@ -44,7 +46,7 @@ int convert_to_arabic(const char *number)
 char * convert_from_arabic(int number)
 {
   // longest standard roman numeral is 15 characters
-  char * result = malloc(16 * sizeof(char));
+  char * result = malloc(MAX_ROMAN_NUMERAL_SIZE * sizeof(char));
   char * ptr = result;
 
   int chunk[13] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
@@ -65,7 +67,7 @@ char * convert_from_arabic(int number)
     {{'I'}, 1}
   };
 
-  for(int i = 0; i < 13; i++){
+  for(int i = 0; i < sizeof(roman_conv)/sizeof(roman_conv[0]); i++){
     int count = (number / chunk[i]);
     if (count > 0){
       number -= (count * chunk[i]);
@@ -101,7 +103,7 @@ static void rewrite_to_ignore_subtraction_rules(char *roman_numeral)
 static void gsub(char *str, const char *pattern, const char *repl)
 {
 	char *sub_ptr, *p2, *p3;
-	char temp[2048];
+	char temp[MAX_ROMAN_NUMERAL_SIZE];
 	const char *repl_ptr;
 
 	while((sub_ptr = strstr(str, pattern)))
