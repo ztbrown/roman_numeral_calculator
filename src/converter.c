@@ -3,7 +3,7 @@
 #include "converter.h"
 
 static void gsub(char *str, const char *pattern, const char *repl);
-static void rewrite_to_ignore_subtraction_rules(char *roman_numeral);
+static void rewrite_subtraction(char *roman_numeral);
 static void add_to_buffer(char nums[2], int size, char ** ptr);
 
 static const int MAX_ROMAN_NUMERAL_SIZE = 16;
@@ -20,7 +20,7 @@ int convert_to_arabic(const char *number)
 
   strcpy(roman_numeral, number);
 
-  rewrite_to_ignore_subtraction_rules(roman_numeral);
+  rewrite_subtraction(roman_numeral);
 
   for (int i = 0; roman_numeral[i]; i++){
     if (roman_numeral[i] == 'I'){
@@ -90,7 +90,7 @@ static void add_to_buffer(char nums[2], int size, char ** numeral)
     }
 }
 
-static void rewrite_to_ignore_subtraction_rules(char *roman_numeral)
+static void rewrite_subtraction(char *roman_numeral)
 {
 	const char * const patterns[] = {"CM", "CD", "XC", "XL", "IX", "IV"};
 	const char * const repl[] = {"DCD", "CCCC", "LXL", "XXXX", "VIV", "IIII"};
