@@ -129,6 +129,12 @@ START_TEST(it_validates_L_and_returns_success)
 }
 END_TEST
 
+START_TEST(it_validates_LX_and_returns_success)
+{
+  ck_assert_int_eq(validate("LX"), 0);
+}
+END_TEST
+
 Suite * validator_suite(void)
 {
   Suite *s;
@@ -159,6 +165,7 @@ Suite * validator_suite(void)
   tcase_add_test(tc_core, it_validates_MM_and_returns_success);
   tcase_add_test(tc_core, it_validates_MMM_and_returns_success);
   tcase_add_test(tc_core, it_validates_L_and_returns_success);
+  tcase_add_test(tc_core, it_validates_LX_and_returns_success);
 
   suite_add_tcase(s, tc_core);
 
