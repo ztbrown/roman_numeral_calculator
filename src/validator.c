@@ -6,10 +6,10 @@ regex_t regex;
 int reti;
 
 int validate(const char *a) {
-  // return 0 on success 
+  // return 0 on success
   int return_value = 1;
 
-  reti = regcomp(&regex, "^(M{0,3})(CM|CD|C{0,3})(XC|XL|X{0,3})(IX|IV|V?I{0,3})$", REG_EXTENDED);
+  reti = regcomp(&regex, "^(M{0,3})(CM|CD|C{0,3})(XC|XL|L|X{0,3})(IX|IV|V?I{0,3})$", REG_EXTENDED);
   if (reti) {
     return 1;
   }
