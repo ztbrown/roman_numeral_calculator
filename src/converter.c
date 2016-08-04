@@ -43,10 +43,10 @@ int convert_to_arabic(const char *number)
   return result;
 }
 
-char * convert_from_arabic(int number)
+char * convert_from_arabic(int number, char * result)
 {
   // longest standard roman numeral is 15 characters
-  char * result = malloc(MAX_ROMAN_NUMERAL_SIZE * sizeof(char));
+  //char * result = malloc(MAX_ROMAN_NUMERAL_SIZE * sizeof(char));
   char * ptr = result;
 
   int chunk[13] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};

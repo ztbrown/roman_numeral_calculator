@@ -5,9 +5,9 @@
 
 START_TEST(it_adds_I_and_I_to_get_II)
  {
-   char * result = add("I", "I");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "II");
+   ck_assert_str_eq(add("I", "I", result), "II");
 
    free(result);
  }
@@ -15,9 +15,9 @@ END_TEST
 
 START_TEST(it_adds_III_and_I_to_get_IV)
  {
-   char * result = add("III", "I");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "IV");
+   ck_assert_str_eq(add("III", "I", result), "IV");
 
    free(result);
  }
@@ -25,9 +25,9 @@ END_TEST
 
 START_TEST(it_adds_IV_and_I_to_get_V)
  {
-   char * result = add("IV", "I");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "V");
+   ck_assert_str_eq(add("IV", "I", result), "V");
 
    free(result);
  }
@@ -35,9 +35,9 @@ END_TEST
 
 START_TEST(it_adds_III_and_VI_to_get_IX)
  {
-   char * result = add("III", "VI");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "IX");
+   ck_assert_str_eq(add("III", "VI", result), "IX");
 
    free(result);
  }
@@ -45,9 +45,9 @@ END_TEST
 
 START_TEST(it_adds_V_and_V_to_get_X)
  {
-   char * result = add("V", "V");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "X");
+   ck_assert_str_eq(add("V", "V", result), "X");
 
    free(result);
  }
@@ -55,9 +55,9 @@ END_TEST
 
 START_TEST(it_adds_IX_and_IX_to_get_XVIII)
  {
-   char * result = add("IX", "IX");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "XVIII");
+   ck_assert_str_eq(add("IX", "IX", result), "XVIII");
 
    free(result);
  }
@@ -65,9 +65,9 @@ END_TEST
 
 START_TEST(it_adds_IV_and_IV_to_get_VIII)
  {
-   char * result = add("IV", "IV");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "VIII");
+   ck_assert_str_eq(add("IV", "IV", result), "VIII");
 
    free(result);
  }
@@ -75,9 +75,9 @@ END_TEST
 
 START_TEST(it_adds_X_and_XXX_to_get_XL)
  {
-   char * result = add("X", "XXX");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "XL");
+   ck_assert_str_eq(add("X", "XXX", result), "XL");
 
    free(result);
  }
@@ -85,9 +85,9 @@ END_TEST
 
 START_TEST(it_adds_X_and_XL_to_get_L)
  {
-   char * result = add("X", "XL");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "L");
+   ck_assert_str_eq(add("X", "XL", result), "L");
 
    free(result);
  }
@@ -95,9 +95,9 @@ END_TEST
 
 START_TEST(it_adds_L_and_XL_to_get_XC)
  {
-   char * result = add("L", "XL");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "XC");
+   ck_assert_str_eq(add("L", "XL", result), "XC");
 
    free(result);
  }
@@ -105,9 +105,9 @@ END_TEST
 
 START_TEST(it_adds_L_and_L_to_get_C)
  {
-   char * result = add("L", "L");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "C");
+   ck_assert_str_eq(add("L", "L", result), "C");
 
    free(result);
  }
@@ -115,9 +115,9 @@ END_TEST
 
 START_TEST(it_adds_XC_and_XC_to_get_CLXXX)
  {
-   char * result = add("XC", "XC");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "CLXXX");
+   ck_assert_str_eq(add("XC", "XC", result), "CLXXX");
 
    free(result);
  }
@@ -125,9 +125,9 @@ END_TEST
 
 START_TEST(it_adds_C_and_CCC_to_get_CD)
  {
-   char * result = add("C", "CCC");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "CD");
+   ck_assert_str_eq(add("C", "CCC", result), "CD");
 
    free(result);
  }
@@ -135,9 +135,9 @@ END_TEST
 
 START_TEST(it_adds_CC_and_CCC_to_get_D)
  {
-   char * result = add("CC", "CCC");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "D");
+   ck_assert_str_eq(add("CC", "CCC", result), "D");
 
    free(result);
  }
@@ -145,9 +145,9 @@ END_TEST
 
 START_TEST(it_adds_D_and_CD_to_get_CM)
  {
-   char * result = add("D", "CD");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "CM");
+   ck_assert_str_eq(add("D", "CD", result), "CM");
 
    free(result);
  }
@@ -155,9 +155,9 @@ END_TEST
 
 START_TEST(it_adds_D_and_D_to_get_M)
  {
-   char * result = add("D", "D");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "M");
+   ck_assert_str_eq(add("D", "D", result), "M");
 
    free(result);
  }
@@ -165,9 +165,9 @@ END_TEST
 
 START_TEST(it_can_handle_the_longest_standard_roman_numeral)
  {
-   char * result = add("MMDCCCLXXXVIII", "M");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "MMMDCCCLXXXVIII");
+   ck_assert_str_eq(add("MMDCCCLXXXVIII", "M", result), "MMMDCCCLXXXVIII");
 
    free(result);
  }
@@ -208,9 +208,9 @@ Suite * add_suite(void)
 
 START_TEST(it_subtracts_I_from_II_to_get_I)
  {
-   char * result = subtract("II", "I");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "I");
+   ck_assert_str_eq(subtract("II", "I", result), "I");
 
    free(result);
  }
@@ -218,9 +218,9 @@ END_TEST
 
 START_TEST(it_subtracts_I_from_V_to_get_IV)
  {
-   char * result = subtract("V", "I");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "IV");
+   ck_assert_str_eq(subtract("V", "I", result), "IV");
 
    free(result);
  }
@@ -228,9 +228,9 @@ END_TEST
 
 START_TEST(it_subtracts_I_from_X_to_get_IX)
  {
-   char * result = subtract("X", "I");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "IX");
+   ck_assert_str_eq(subtract("X", "I", result), "IX");
 
    free(result);
  }
@@ -238,9 +238,9 @@ END_TEST
 
 START_TEST(it_subtracts_IV_from_XIII_to_get_IX)
  {
-   char * result = subtract("XIII", "IV");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "IX");
+   ck_assert_str_eq(subtract("XIII", "IV", result), "IX");
 
    free(result);
  }
@@ -248,9 +248,9 @@ END_TEST
 
 START_TEST(it_subtracts_I_from_L_to_get_XLIX)
  {
-   char * result = subtract("L", "I");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "XLIX");
+   ck_assert_str_eq(subtract("L", "I", result), "XLIX");
 
    free(result);
  }
@@ -258,9 +258,9 @@ END_TEST
 
 START_TEST(it_subtracts_I_from_C_to_get_XCIX)
  {
-   char * result = subtract("C", "I");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "XCIX");
+   ck_assert_str_eq(subtract("C", "I", result), "XCIX");
 
    free(result);
  }
@@ -268,9 +268,9 @@ END_TEST
 
 START_TEST(it_subtracts_I_from_D_to_get_CDXCIX)
  {
-   char * result = subtract("D", "I");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "CDXCIX");
+   ck_assert_str_eq(subtract("D", "I", result), "CDXCIX");
 
    free(result);
  }
@@ -278,9 +278,9 @@ END_TEST
 
 START_TEST(it_subtracts_I_from_M_to_get_CMXCIX)
  {
-   char * result = subtract("M", "I");
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "CMXCIX");
+   ck_assert_str_eq(subtract("M", "I", result), "CMXCIX");
 
    free(result);
  }
