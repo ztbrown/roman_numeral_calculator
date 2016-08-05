@@ -5,9 +5,9 @@
 
 START_TEST(it_converts_1_to_I)
  {
-   char * result = convert_from_arabic(1);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "I");
+   ck_assert_str_eq(convert_from_arabic(1, result), "I");
 
    free(result);
  }
@@ -15,9 +15,9 @@ END_TEST
 
 START_TEST(it_converts_2_to_II)
  {
-   char * result = convert_from_arabic(2);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "II");
+   ck_assert_str_eq(convert_from_arabic(2, result), "II");
 
    free(result);
  }
@@ -25,9 +25,9 @@ END_TEST
 
 START_TEST(it_converts_5_to_V)
  {
-   char * result = convert_from_arabic(5);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "V");
+   ck_assert_str_eq(convert_from_arabic(5, result), "V");
 
    free(result);
  }
@@ -35,9 +35,9 @@ END_TEST
 
 START_TEST(it_converts_4_to_IV)
  {
-   char * result = convert_from_arabic(4);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "IV");
+   ck_assert_str_eq(convert_from_arabic(4, result), "IV");
 
    free(result);
  }
@@ -45,9 +45,9 @@ END_TEST
 
 START_TEST(it_converts_9_to_IX)
  {
-   char * result = convert_from_arabic(9);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "IX");
+   ck_assert_str_eq(convert_from_arabic(9, result), "IX");
 
    free(result);
  }
@@ -55,9 +55,9 @@ END_TEST
 
 START_TEST(it_converts_10_to_X)
  {
-   char * result = convert_from_arabic(10);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "X");
+   ck_assert_str_eq(convert_from_arabic(10, result), "X");
 
    free(result);
  }
@@ -65,9 +65,9 @@ END_TEST
 
 START_TEST(it_converts_20_to_XX)
  {
-   char * result = convert_from_arabic(20);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "XX");
+   ck_assert_str_eq(convert_from_arabic(20, result), "XX");
 
    free(result);
  }
@@ -75,9 +75,9 @@ END_TEST
 
 START_TEST(it_converts_40_to_XL)
  {
-   char * result = convert_from_arabic(40);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "XL");
+   ck_assert_str_eq(convert_from_arabic(40, result), "XL");
 
    free(result);
  }
@@ -85,9 +85,9 @@ END_TEST
 
 START_TEST(it_converts_50_to_L)
  {
-   char * result = convert_from_arabic(50);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "L");
+   ck_assert_str_eq(convert_from_arabic(50, result), "L");
 
    free(result);
  }
@@ -95,9 +95,9 @@ END_TEST
 
 START_TEST(it_converts_90_to_XC)
  {
-   char * result = convert_from_arabic(90);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "XC");
+   ck_assert_str_eq(convert_from_arabic(90, result), "XC");
 
    free(result);
  }
@@ -105,9 +105,9 @@ END_TEST
 
 START_TEST(it_converts_100_to_C)
  {
-   char * result = convert_from_arabic(100);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "C");
+   ck_assert_str_eq(convert_from_arabic(100, result), "C");
 
    free(result);
  }
@@ -115,9 +115,9 @@ END_TEST
 
 START_TEST(it_converts_200_to_CC)
  {
-   char * result = convert_from_arabic(200);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "CC");
+   ck_assert_str_eq(convert_from_arabic(200, result), "CC");
 
    free(result);
  }
@@ -125,9 +125,9 @@ END_TEST
 
 START_TEST(it_converts_400_to_CD)
  {
-   char * result = convert_from_arabic(400);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "CD");
+   ck_assert_str_eq(convert_from_arabic(400, result), "CD");
 
    free(result);
  }
@@ -135,9 +135,9 @@ END_TEST
 
 START_TEST(it_converts_500_to_D)
  {
-   char * result = convert_from_arabic(500);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "D");
+   ck_assert_str_eq(convert_from_arabic(500, result), "D");
 
    free(result);
  }
@@ -145,9 +145,9 @@ END_TEST
 
 START_TEST(it_converts_900_to_CM)
  {
-   char * result = convert_from_arabic(900);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "CM");
+   ck_assert_str_eq(convert_from_arabic(900, result), "CM");
 
    free(result);
  }
@@ -155,9 +155,9 @@ END_TEST
 
 START_TEST(it_converts_1000_to_M)
  {
-   char * result = convert_from_arabic(1000);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "M");
+   ck_assert_str_eq(convert_from_arabic(1000, result), "M");
 
    free(result);
  }
@@ -165,9 +165,9 @@ END_TEST
 
 START_TEST(it_converts_2000_to_MM)
  {
-   char * result = convert_from_arabic(2000);
+   char * result = malloc(16 * sizeof(char));
 
-   ck_assert_str_eq(result, "MM");
+   ck_assert_str_eq(convert_from_arabic(2000, result), "MM");
 
    free(result);
  }
