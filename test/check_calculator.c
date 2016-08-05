@@ -173,6 +173,16 @@ START_TEST(it_can_handle_the_longest_standard_roman_numeral)
  }
 END_TEST
 
+START_TEST(it_returns_invalid_input_for_numbers_adding_up_to_more_than_3999)
+ {
+   char * result = malloc(16 * sizeof(char));
+
+   ck_assert_str_eq(add("MMM", "M", result), "Invalid Entry");
+
+   free(result);
+ }
+END_TEST
+
 Suite * add_suite(void)
 {
   Suite *s;
@@ -199,6 +209,7 @@ Suite * add_suite(void)
   tcase_add_test(tc_core, it_adds_D_and_CD_to_get_CM);
   tcase_add_test(tc_core, it_adds_D_and_D_to_get_M);
   tcase_add_test(tc_core, it_can_handle_the_longest_standard_roman_numeral);
+  tcase_add_test(tc_core, it_returns_invalid_input_for_numbers_adding_up_to_more_than_3999);
 
   suite_add_tcase(s, tc_core);
 
