@@ -297,6 +297,26 @@ START_TEST(it_subtracts_I_from_M_to_get_CMXCIX)
  }
 END_TEST
 
+START_TEST(it_subtracts_I_from_I_to_get_Invalid_Entry)
+ {
+   char * result = malloc(16 * sizeof(char));
+
+   ck_assert_str_eq(subtract("I", "I", result), "Invalid Entry");
+
+   free(result);
+ }
+END_TEST
+
+START_TEST(it_subtracts_II_from_I_to_get_Invalid_Entry)
+ {
+   char * result = malloc(16 * sizeof(char));
+
+   ck_assert_str_eq(subtract("I", "II", result), "Invalid Entry");
+
+   free(result);
+ }
+END_TEST
+
 Suite * subtract_suite(void)
 {
   Suite *s;
@@ -314,6 +334,8 @@ Suite * subtract_suite(void)
   tcase_add_test(tc_core, it_subtracts_I_from_C_to_get_XCIX);
   tcase_add_test(tc_core, it_subtracts_I_from_D_to_get_CDXCIX);
   tcase_add_test(tc_core, it_subtracts_I_from_M_to_get_CMXCIX);
+  tcase_add_test(tc_core, it_subtracts_I_from_I_to_get_Invalid_Entry);
+  tcase_add_test(tc_core, it_subtracts_II_from_I_to_get_Invalid_Entry);
 
   suite_add_tcase(s, tc_core);
 
