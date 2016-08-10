@@ -15,7 +15,8 @@ char * add(const char *a, const char *b, char * result)
   return result;
 }
 
-char * subtract(const char *a, const char *b, char * result) {
+char * subtract(const char *a, const char *b, char * result)
+{
   if (validate(a) == 0 && validate(b) == 0){
     convert_from_arabic(convert_to_arabic(a) - convert_to_arabic(b), result);
     if (validate(result) == 1 ){
