@@ -9,12 +9,6 @@ START_TEST(it_validates_I_and_returns_success)
 }
 END_TEST
 
-START_TEST(it_validates_IIII_and_returns_failure)
-{
-  ck_assert_int_eq(validate("IIII"), 1);
-}
-END_TEST
-
 START_TEST(it_validates_II_and_returns_success)
 {
   ck_assert_int_eq(validate("II"), 0);
@@ -153,6 +147,66 @@ START_TEST(it_validates_NULL_and_returns_failure)
 }
 END_TEST
 
+START_TEST(it_validates_IIII_and_returns_failure)
+{
+  ck_assert_int_eq(validate("IIII"), 1);
+}
+END_TEST
+
+START_TEST(it_validates_VIIII_and_returns_failure)
+{
+  ck_assert_int_eq(validate("VIIII"), 1);
+}
+END_TEST
+
+START_TEST(it_validates_XXXX_and_returns_failure)
+{
+  ck_assert_int_eq(validate("XXXX"), 1);
+}
+END_TEST
+
+START_TEST(it_validates_LXXXX_and_returns_failure)
+{
+  ck_assert_int_eq(validate("LXXXX"), 1);
+}
+END_TEST
+
+START_TEST(it_validates_CCCC_and_returns_failure)
+{
+  ck_assert_int_eq(validate("CCCC"), 1);
+}
+END_TEST
+
+START_TEST(it_validates_DCCCC_and_returns_failure)
+{
+  ck_assert_int_eq(validate("DCCCC"), 1);
+}
+END_TEST
+
+START_TEST(it_validates_MMMM_and_returns_failure)
+{
+  ck_assert_int_eq(validate("MMMM"), 1);
+}
+END_TEST
+
+START_TEST(it_validates_LL_and_returns_failure)
+{
+  ck_assert_int_eq(validate("LL"), 1);
+}
+END_TEST
+
+START_TEST(it_validates_DD_and_returns_failure)
+{
+  ck_assert_int_eq(validate("DD"), 1);
+}
+END_TEST
+
+START_TEST(it_validates_VV_and_returns_failure)
+{
+  ck_assert_int_eq(validate("VV"), 1);
+}
+END_TEST
+
 Suite * validator_suite(void)
 {
   Suite *s;
@@ -163,7 +217,6 @@ Suite * validator_suite(void)
   tc_core = tcase_create("Core");
 
   tcase_add_test(tc_core, it_validates_I_and_returns_success);
-  tcase_add_test(tc_core, it_validates_IIII_and_returns_failure);
   tcase_add_test(tc_core, it_validates_II_and_returns_success);
   tcase_add_test(tc_core, it_validates_V_and_returns_success);
   tcase_add_test(tc_core, it_validates_VI_and_returns_success);
@@ -187,6 +240,16 @@ Suite * validator_suite(void)
   tcase_add_test(tc_core, it_validates_D_and_returns_success);
   tcase_add_test(tc_core, it_validates_empty_string_and_returns_failure);
   tcase_add_test(tc_core, it_validates_NULL_and_returns_failure);
+  tcase_add_test(tc_core, it_validates_IIII_and_returns_failure);
+  tcase_add_test(tc_core, it_validates_VIIII_and_returns_failure);
+  tcase_add_test(tc_core, it_validates_XXXX_and_returns_failure);
+  tcase_add_test(tc_core, it_validates_LXXXX_and_returns_failure);
+  tcase_add_test(tc_core, it_validates_CCCC_and_returns_failure);
+  tcase_add_test(tc_core, it_validates_DCCCC_and_returns_failure);
+  tcase_add_test(tc_core, it_validates_MMMM_and_returns_failure);
+  tcase_add_test(tc_core, it_validates_LL_and_returns_failure);
+  tcase_add_test(tc_core, it_validates_VV_and_returns_failure);
+  tcase_add_test(tc_core, it_validates_DD_and_returns_failure);
 
   suite_add_tcase(s, tc_core);
 
