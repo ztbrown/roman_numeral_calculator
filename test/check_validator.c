@@ -147,6 +147,12 @@ START_TEST(it_validates_empty_string_and_returns_failure)
 }
 END_TEST
 
+START_TEST(it_validates_NULL_and_returns_failure)
+{
+  ck_assert_int_eq(validate(NULL), 1);
+}
+END_TEST
+
 Suite * validator_suite(void)
 {
   Suite *s;
@@ -180,6 +186,7 @@ Suite * validator_suite(void)
   tcase_add_test(tc_core, it_validates_LX_and_returns_success);
   tcase_add_test(tc_core, it_validates_D_and_returns_success);
   tcase_add_test(tc_core, it_validates_empty_string_and_returns_failure);
+  tcase_add_test(tc_core, it_validates_NULL_and_returns_failure);
 
   suite_add_tcase(s, tc_core);
 
