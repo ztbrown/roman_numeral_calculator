@@ -6,16 +6,18 @@
 regex_t regex;
 int reti;
 
-int validate(const char *a) {
+int is_null_or_empty(const char *input);
+
+int validate(const char *input) {
   // return 0 on success
   int return_value = 1;
 
   reti = regcomp(&regex, "^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$", REG_EXTENDED);
-  if (reti || strlen(a) == 0) {
+  if (reti || is_null_or_empty(input)) {
     return 1;
   }
 
-  reti = regexec(&regex, a, 0, NULL, 0);
+  reti = regexec(&regex, input, 0, NULL, 0);
   if (!reti) {
     return_value = 0;
   }
@@ -23,4 +25,9 @@ int validate(const char *a) {
   regfree(&regex);
 
   return return_value;
+}
+
+int is_null_or_empty(const char *input)
+{
+  return input == NULL || strlen(input) == 0;
 }
